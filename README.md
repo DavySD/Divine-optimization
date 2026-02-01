@@ -10,8 +10,9 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 	- [Por que não o Windows](#por-que-não-o-windows)
 	- [Interfaces](#interfaces-de-wm--wc)
 		- [X11 & Wayland](#protocolos-de-servidor-gr%C3%A1fico-x11--wayland)
+		- [Escolher Interface](#qual-interface-escolher-afinal)
+			- [DEs primárias](#des-primárias)
 
-> [!NOTE]
 > Muitos elementos apresentados aqui são grandes explicações de diversos conceitos. 
 > Se você já sabe o que **A** e **B** fazem, sinta-se livre para partir para o abate. 
 > *Mas sempre leia as entrelinhas.*
@@ -59,7 +60,74 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
   * O [X](https://pt.wikipedia.org/wiki/X_Window_System)11 é um software de sistema e um [protocolo](https://pt.wikipedia.org/wiki/Sistema_de_janelas) que fornece uma base para [interfaces gráficas](interfaces-de--wm--wc) e funcionalidade rica de dispositivos de entrada para redes de computadores. Ele cria uma camada de abstração de hardware onde o software é escrito para usar um conjunto generalizado de comandos, permitindo a independência de dispositivo e reutilização de programas em qualquer computador que implemente o X.
 * O que é o Wayland?
   * O [Wayland](https://pt.wikipedia.org/wiki/Wayland_(protocolo_de_servidor_gr%C3%A1fico)) é um [protocolo de servidor gráfico](#protocolos-de-servidor-gr%C3%A1fico-x11--wayland) moderno que visa substituir o [X](https://pt.wikipedia.org/wiki/X_Window_System)11. Ele foi projetado para ser mais simples, seguro e eficiente, eliminando muitas das complexidades herdadas do X. No Wayland, o compositor gerencia tudo diretamente (janelas, renderização, entrada), resultando em menos latência e melhor desempenho gráfico.
- 
+
+#### Qual Interface escolher afinal?
+* As coisas no mundo Linux funcionam diferente em comparação ao Windows.
+	* O que é uma DE pesada?
+  		* Uma DE que consuma de 900 MB - 1 GB de RAM em idle e tenha muita composição (efeitos).
+	* WM/WCs são pesados?
+   		* Não em si. Eles são mais leves que DEs por serem *uma coisa só*. DEs são ecossistemas com diversas coisas, incluindo um WM próprio.
+       	* Em um W(M,C) você é quem escolhe os aspectos do seu próprio ecossistema, misturando diversos programas até o resultado esperado. Sendo minimamente mais complexo de ser dominado quanto a uma DE, mas obviamente mais leve (se você quiser que seja).
+
+#### DEs Primárias
+* **Gnome**
+	- Composições na teoria mais simples.
+ 	- Interface menos amigável.
+  	- Pouca liberdade direta de personalização (para desativar e regular o quanto a interface puxa).
+  	- Às vezes pode se mostrar mais pesado que o Plasma.
+  	- [x] Wayland
+  	- [x] X11
+	- **Pra rodar bem teoricamente:**
+  		- CPU quad core (pelo menos de segunda geração);
+  	 	- 4 GB RAM ao menos;
+  	  	- (I)GPU com Vulkan ao menos.
+
+* **KDE Plasma**
+	- Composições mais fantásticas, porém fáceis de serem reguladas e desativadas.
+ 	- Interface familiar e amigável.
+    - Se mostra bem leve atualmente.
+  	- [x] Wayland
+  	- [x] X11
+    - **Pra rodar bem teoricamente:**
+  		- CPU quad core (pelo menos de segunda geração);
+  	 	- CPU dual core de geração superior à oitava;
+  	 	- 4 GB RAM ao menos;
+  	  	- (I)GPU com Vulkan ao menos.
+
+* **Xfce**
+	- Composições simples e modulares.
+ 	- Interface amigável, porém humilde.
+    - Sempre foi leve.
+  	- [ ] Wayland (em desenvolvimento)
+  	- [x] X11
+	- **Pra rodar bem teoricamente:**
+ 		- CPU que exista; 
+  	 	- 1 - 2 GB RAM ao menos;
+  	  	- (I)GPU que ligue.
+
+* **LXQt**
+	- Sucessor espiritual do LXDE
+	- Mais leve que Xfce em alguns casos
+	- Interface básica mas funcional
+	- [x] Wayland (experimental)
+	- [x] X11
+	- **Pra rodar bem teoricamente:**
+ 		- CPU que exista; 
+  	 	- 1 GB RAM ao menos;
+  	  	- (I)GPU que ligue.
+
+> [!NOTE]
+> Por processadores Intel terem gerações mais simples de serem medidas, foram usados como métrica. Se você usa AMD: qualquer Ryzen dá conta. Se você usa um processador AMD mais antigo, faça uma conversão.
+>
+> Vulkan só está como métrica para dizer respeito a GPUs dedicadas mais capazes e iGPUs minimamente dotadas (ex. Intel HD Graphics 4000). Uma GPU/iGPU sem Vulkan provavelmente aguenta o tranco também, mas aí é teste seu.
+
+##### Tabela
+| DE | RAM Idle | Complexidade | Wayland | Recomendado para |
+|----|----------|--------------|---------|------------------|
+| Gnome | ~900MB-1.2GB | Baixa | ✓ | Hardware médio+ |
+| KDE Plasma | ~600MB-800MB | Baixa - Média | ✓ | Versátil |
+| Xfce | ~300MB-500MB | Baixa | * | Hardware modesto |
+| LXQt | ~250MB-400MB | Baixa | * | Hardware limitado |
 
 # Fontes
 <!-- Essa categoria é sempre no final, são os créditos. -->
