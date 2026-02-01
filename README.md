@@ -10,6 +10,12 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 	- [Por que não o Windows](#por-que-não-o-windows)
 	- [Interfaces](#interfaces-de-wm--wc)
 		- [X11 & Wayland](#protocolos-de-servidor-gr%C3%A1fico-x11--wayland)
+
+> [!NOTE]
+> Muitos elementos apresentados aqui são grandes explicações de diversos conceitos. 
+> Se você já sabe o que **A** e **B** fazem, sinta-se livre para partir para o abate. 
+> *Mas sempre leia as entrelinhas.*
+
 </details>
 
 ## Início 
