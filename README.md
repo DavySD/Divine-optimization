@@ -1,4 +1,9 @@
 # Divine-optimization
+
+<p align="center">
+  <img src="src/Otimiza%C3%A7%C3%A3o0.png" alt="Divine Optimization" width="600"/>
+</p>
+
 Uma documentação e guia de vastas formas nefastas de otimizar um sistema operacional.
 ---
 
