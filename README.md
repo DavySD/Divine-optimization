@@ -1,4 +1,4 @@
-# Divine-optimization
+# The Divine Optimization
 
 <p align="center">
   <img src="src/Otimiza%C3%A7%C3%A3o0.png" alt="Divine Optimization" width="600"/>
