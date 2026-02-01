@@ -134,6 +134,53 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 | Xfce | ~300MB-500MB | Baixa | * | Hardware modesto |
 | LXQt | ~250MB-400MB | Baixa | * | Hardware limitado |
 
+#### WMs & WCs (W-I-P)
+* O principal ponto de usar um WM/C é o controle. Ele em si é extremamente simples, um gerenciador de janelas. Notificações, painel, gerenciador de arquivos, buscador, gerenciador de wallpapers etc: tudo fica ao teu critério.
+* Todo WM/C espera que você use bastante o teclado para diversos atalhos, alguns mais que outros.
+* Todos são bastantes únicos, mas algo em comum que todos compartilham é um layout de organização de janelas. Basicamente, a forma como eles dispoem janelas pelo monitor.
+* Os layouts mais comuns são: Stacking, Tiling e Dwindle. Eu explorarei um por um, demonstrarei cada um e direi quais WM/Cs usam X e Y.
+
+<details>
+<summary><strong>Stacking</strong></summary>
+
+<p align="center">
+  <img src="src/Layouts/stacking.gif" alt="Stacking" width="600"/>
+</p>
+
+- A
+- B
+- C
+
+</details>
+
+<details>
+<summary><strong>Tiling</strong></summary>
+
+<p align="center">
+  <img src="src/Layouts/tiling.gif" alt="Tiling" width="600"/>
+</p>
+
+- A
+- B
+- C
+
+</details>
+
+<details>
+<summary><strong>Dwindle</strong></summary>
+
+<p align="center">
+  <img src="src/Layouts/dwindle.gif" alt="Dwindle" width="600"/>
+</p>
+
+- A
+- B
+- C
+  
+</details>
+
+<!-- Abaixo, pra depois, colocar mais um menu flutuante chamado "Others" para por o scrollable e spiral layout. -->
+
 # Fontes
 <!-- Essa categoria é sempre no final, são os créditos. -->
 - [Wikipedia](https://pt.wikipedia.org/)
