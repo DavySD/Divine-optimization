@@ -17,6 +17,7 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 		- [X11 & Wayland](#protocolos-de-servidor-gr%C3%A1fico-x11--wayland)
 		- [Escolher Interface](#qual-interface-escolher-afinal)
 			- [DEs primárias](#des-primárias)
+			- [WMs & WCs](#wms--wcs)
 
 > Muitos elementos apresentados aqui são grandes explicações de diversos conceitos. 
 > Se você já sabe o que **A** e **B** fazem, sinta-se livre para partir para o abate. 
@@ -134,7 +135,7 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 | Xfce | ~300MB-500MB | Baixa | * | Hardware modesto |
 | LXQt | ~250MB-400MB | Baixa | * | Hardware limitado |
 
-#### WMs & WCs (W-I-P)
+#### WMs & WCs
 * O principal ponto de usar um WM/C é o controle. Ele em si é extremamente simples, um gerenciador de janelas. Notificações, painel, gerenciador de arquivos, buscador, gerenciador de wallpapers etc: tudo fica ao teu critério.
 * Todo WM/C espera que você use bastante o teclado para diversos atalhos, alguns mais que outros.
 * Todos são bastantes únicos, mas algo em comum que todos compartilham é um layout de organização de janelas. Basicamente, a forma como eles dispoem janelas pelo monitor.
@@ -147,9 +148,13 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
   <img src="src/Layouts/stacking.gif" alt="Stacking" width="600"/>
 </p>
 
-- A
-- B
-- C
+- **O que é:** Janelas flutuantes que se sobrepõem, como no Windows/macOS tradicional.
+- **Comportamento:** Você posiciona e redimensiona janelas manualmente. A última janela focada fica "no topo" da pilha.
+- **Ideal para:** Quem vem do Windows e não quer mudar o paradigma de uso. Bom para multitarefa visual (vários programas visíveis ao mesmo tempo).
+- **WMs que usam:** Openbox, Fluxbox, IceWM, JWM
+- **WCs que usam:** Labwc, Hikari, Wayfire
+- **Performance:** Excelente (especialmente Openbox/Labwc)
+- **Curva de aprendizado:** Baixa
 
 </details>
 
@@ -160,9 +165,13 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
   <img src="src/Layouts/tiling.gif" alt="Tiling" width="600"/>
 </p>
 
-- A
-- B
-- C
+- **O que é:** Janelas preenchem a tela automaticamente sem sobreposição, como ladrilhos *(tiles)*.
+- **Comportamento:** Cada nova janela divide o espaço disponível. Layout geralmente é master-stack (janela principal + janelas secundárias).
+- **Ideal para:** Produtividade (ligada à leitura e escrita), uso via teclado, aproveitar cada pixel da tela. Perfeito para múltiplos terminais, editores de código, monitoramento.
+- **WMs que usam:** i3wm, bspwm, qtile, awesome
+- **WCs que usam:** Sway, River
+- **Performance:** Excelente
+- **Curva de aprendizado:** Média-Alta (requer domínio de keybinds)
 
 </details>
 
@@ -173,13 +182,50 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
   <img src="src/Layouts/dwindle.gif" alt="Dwindle" width="600"/>
 </p>
 
-- A
-- B
-- C
-  
+- **O que é:** Variação de tiling onde cada nova janela divide a anterior em espiral (alterna horizontal/vertical).
+- **Comportamento:** Primeira janela ocupa tudo. Segunda divide em 50/50. Terceira divide a metade em 50/50 novamente, criando um padrão em espiral.
+- **Ideal para:** Tiling mas com foco visual na janela principal (que permanece maior). Bom para navegador + terminal + editor.
+- **WMs que usam:** DWM (com patches), Awesome
+- **WCs que usam:** Hyprland, Mango
+- **Performance:** Excelente
+- **Curva de aprendizado:** Média (similar ao tiling)
+
 </details>
 
-<!-- Abaixo, pra depois, colocar mais um menu flutuante chamado "Others" para por o scrollable e spiral layout. -->
+<details>
+<summary><strong>Others</strong></summary>
+
+<p align="center">
+  <img src="src/Layouts/spiral.gif" alt="Spiral" width="400"/>
+  <img src="src/Layouts/scrollable.gif" alt="Scrollable" width="400"/>
+</p>
+
+<p align="center">
+  <img src="src/Layouts/monocle.gif" alt="Monocle" width="400"/>
+</p>
+
+**Spiral (Espiral)**
+- Similar ao dwindle mas mantém proporções diferentes
+- Usado em: Awesome, XMonad, DWM
+
+**Scrollable**
+- Janelas organizadas horizontalmente como uma fila
+- Você **scrolla** entre elas como num carrossel
+- Usado em: Niri, Mango
+- Ideal para monitores menores: aqui as janelas não são cortadas como nas outras organizações, **são empurradas.**
+
+**Monocle (Maximizado)**
+- Uma janela por vez em tela cheia, empilhadas uma sobre a outra
+- Útil para focar em uma tarefa
+- Usado em: Quase todos (via toggle)
+
+</details>
+
+> [!TIP]
+> Existem diversos WM/C que suportam múltiplos layouts.
+>
+> Ex: Xmonad, DWM (Quase todos listados, via [patches](https://dwm.suckless.org/patches/)), Wayfire (Predominantemente Stacking, mas tem [simple-tile](https://github.com/DavySD/wm-dotfiles/blob/main/Source/Screenshot/preview-2.gif) opcional), Sway (Predominantemente tiling, mas tem opcionalmente Tabs e Stacking), MangoWC ([Suporta mais de 9 layouts](https://mangowc.vercel.app/) para os indecisos).
+
 
 # Fontes
 <!-- Essa categoria é sempre no final, são os créditos. -->
