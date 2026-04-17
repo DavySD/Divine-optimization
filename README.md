@@ -34,12 +34,12 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 > [!TIP]
 > Eu, Deive, [tenho um servidor no Discord](https://disboard.org/pt-br/server/1371434807988588636) no qual você pode pedir uma luz.
 
-## Sistema Operacional
+## Sistema Operacional (Teorias)
 
 ### Por que não o Windows
 * Prepare seu coração. Essa documentação é pensada para sistemas Unix (aka Linux), esqueça o Windows.
 * Windows é muito limitado quanto a modificações realmente relevantes.
-* Acredite, o foco aqui não é desativar animações em uma interface ou adicionar mais swap. Aqui vamos mexer com conceitos como governadores de CPU; kernel; compilação; swap, zram, zswap; cache e mais.
+* Acredite, o foco aqui não é desativar animações em uma interface ou adicionar mais swap. Aqui vamos mexer com conceitos como governadores de CPU; kernel; compilação; swap x zram x zswap; cache e mais.
 * "Qual distribuição Linux eu escolho?" - Isso depende muito. Tem vários guias na internet, mas no geral escolha algo como [*Mint*](https://www.linuxmint.com/). Se seu computador rodar KDE, use [*Fedora "KDE"*](https://kde.fedoraproject.org/) *(abordaremos interfaces em seguida)*, [*CachyOS*](https://cachyos.org/) ou tanto faz. **Aqui o que eu abordar funciona para 98% das distros.**
 
 > [!NOTE]
@@ -226,6 +226,67 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 >
 > Ex: Xmonad, DWM (Quase todos listados, via [patches](https://dwm.suckless.org/patches/)), Wayfire (Predominantemente Stacking, mas tem [simple-tile](https://github.com/DavySD/wm-dotfiles/blob/main/Source/Screenshot/preview-2.gif) opcional), Sway (Predominantemente tiling, mas tem opcionalmente Tabs e Stacking), MangoWC ([Suporta mais de 9 layouts](https://mangowc.vercel.app/) para os indecisos).
 
+# Otimizações
+* Daqui pra baixo, começaremos a realmente fazer otimizações, das mais simples até as mais complexas.
+* Nem toda forma de otimização é definitiva. No caso de interfaces (onde existem várias), será brevemente explicado a lógica do que é "pesado" em uma, explicando como otimizar as mais famosas. Vai de você aprender com o que é ensinado.
+
+> [!NOTE]
+> Reforçando: este é um guia em constante desenvolvimento. Tópicos acima e abaixo ainda serão modificados, aprimorados ou adicionados.
+> Tópicos com "()" são tópicos com assuntos futuros a serem tratados, WIP.
+
+### Interfaces
+* (O que deixa as interfaces pesadas?)
+* (Compositores)
+	* ( Compositores integrados (wayland) x Compositores externos (X11) )
+* (Composições pesadas)
+
+## Aceleração de Hardware (vaapi, vdpau, nvidia)
+* (O que é)
+* (Porque é necessário)
+* (Libva, Nvidia, Vaapi, Vdpau, Nvdec)
+
+### Comandos
+<!-- Aqui já começa os comandos iniciais  -->
+* ( Intel (Legacy & Modern libva) )
+* ( AMD )
+* ( NVIDIA )
+
+## DE's
+* (O que é pesado em uma DE?)
+* (O que deixa uma DE pesada?)
+
+### Kde Plasma
+* (Fama do Plasma) 
+
+#### Configurações iniciais
+* (Composições)
+* (Sombras)
+* (Temas)
+
+#### Kwinrc
+* (APIs gráficas)
+
+#### Addons
+* (Addons externos)
+
+### Gnome
+* (Fatos sobre o Gnome)
+
+#### Configurações iniciais
+* (Modificar a composição/efeitos)
+
+#### Configurações externas
+* (Extensões)
+* (Váriveis de ambiente)
+ 
+### Xfce4 (X11)
+* ("Como tornar o Xfce pesado")
+
+#### DE X WM
+* (Xfwm4 vs Outros WMs)
+
+#### Compositor
+* (Compositor oficial x Picom)
 
 # Fontes
 <!-- Essa categoria é sempre no final, são os créditos. -->
