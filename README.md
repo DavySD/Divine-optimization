@@ -18,6 +18,7 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 		- [Escolher Interface](#qual-interface-escolher-afinal)
 			- [DEs primárias](#des-primárias)
 			- [WMs & WCs](#wms--wcs)
+- [Otimizações](#otimizações)
 
 > Muitos elementos apresentados aqui são grandes explicações de diversos conceitos. 
 > Se você já sabe o que **A** e **B** fazem, sinta-se livre para partir para o abate. 
