@@ -32,9 +32,6 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 * O nome do repositório é inspirado no livro [*Divina Comédia*](https://pt.wikipedia.org/wiki/Divina_Com%C3%A9dia). Não porque esse guia é engraçado, pois você descerá aos infernos aqui.
 * Este guia está em constante evolução e sujeito a alterações.
 
-> [!TIP]
-> Eu, Deive, [tenho um servidor no Discord](https://disboard.org/pt-br/server/1371434807988588636) no qual você pode pedir uma luz.
-
 ## Sistema Operacional (Teorias)
 
 ### Por que não o Windows
