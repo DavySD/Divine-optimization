@@ -233,7 +233,42 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 > Tópicos com "()" são tópicos com assuntos futuros a serem tratados, WIP.
 
 ### Interfaces
-* (O que deixa as interfaces pesadas?)
+#### O que deixa as interfaces pesadas?
+<details>
+<summary><strong>1. 2. 3. 4. 5</strong></summary>
+
+* As interfaces gráficas modernas podem consumir recursos significativos por diversos motivos. 
+
+**1. Efeitos Visuais (Composições)**
+- **Blur (desfoque):** O efeito mais pesado. Requer renderização em tempo real de cada pixel atrás das janelas. -> *Impacto: muito pesado*
+- **Sombras (shadows):** Menos pesado que blur, mas ainda consome ciclos de GPU/CPU. -> *Impacto: pesado - medio*
+- **Animações:** Fade in/out (impacto baixo), slide (impacto baixo), magic lamp (impacto alto), wobbly windows (impacto alto)
+- **Transparência:** Requer composição de múltiplas camadas. -> *Impacto: baixo*
+
+**2. Serviços em Segundo Plano**
+- **Indexadores:** Baloo (KDE), Tracker (Gnome) - vasculham arquivos constantemente para busca rápida.
+- **Polkit Agents:** Alguns são pesados.
+
+> *Baloo* sozinho pode consumir **100-500MB** RAM + I/O constante no disco.
+
+**3. Addons/Extensões**
+- **Plasma Widgets:** Os widgets oficiais do Plasma são até que bem leves (mesmo que consumam um pouco). Mas cuidado a mais deve ser tomado com widgets da comunidade, que podem não só consumir recursos como ainda tornarem o desktop instável.
+- **Gnome Extensions:** Executam em JavaScript, overhead considerável. Algumas mal escritas vazam memória.
+
+**4. Temas e Ícones**
+- **Temas complexos:** Muitos elementos SVG, gradientes, sombras embutidas.
+- **Icon packs gigantes:** Conjuntos com milhares de ícones em alta resolução.
+- **Renderização:** Temas que forçam anti-aliasing pesado ou efeitos CSS complexos.
+- > **Impacto:** Geralmente menor, mas temas mal otimizados podem adicionar latência perceptível.
+
+**5. Aplicações do ecossistema da DE**
+- **File managers pesados** 
+- **Lojas**
+- **Editores de texto**
+> Substituir aplicações nativas por alternativas mais simples podem entregar melhor resposta, a custo da integração com a DE.
+
+</details>
+
 * (Compositores)
 	* ( Compositores integrados (wayland) x Compositores externos (X11) )
 * (Composições pesadas)
