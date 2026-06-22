@@ -232,8 +232,8 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 > Reforçando: este é um guia em constante desenvolvimento. Tópicos acima e abaixo ainda serão modificados, aprimorados ou adicionados.
 > Tópicos com "()" são tópicos com assuntos futuros a serem tratados, WIP.
 
-### Interfaces
-#### O que deixa as interfaces pesadas?
+# Interfaces
+## O que deixa as interfaces pesadas?
 <details>
 <summary><strong>1. 2. 3. 4. 5</strong></summary>
 
@@ -321,7 +321,40 @@ Uma documentação e guia de vastas formas nefastas de otimizar um sistema opera
 #### Compositor
 * (Compositor oficial x Picom)
 
+# Energia
+
+* Um **CPU governor** (ou escalonador de CPU) é um recurso do kernel usado para ajustar — dinamicamente ou não — a frequência da CPU com base na carga de trabalho, visando um equilíbrio entre desempenho e eficiência energética.
+* Toda CPU vem com governors de CPU, mas não necessariamente os mesmos. Laptops costumam ter mais opções, por exemplo.
+* Listando os governors disponíveis (com `cat`):
+
+```bash
+┌─ /home/deive
+└─ η cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+performance schedutil ondemand powersave conservative
+```
+
+* No exemplo acima, `performance`, `schedutil`, `ondemand`, `powersave` e `conservative` são os governors disponíveis. Em computadores desktop, é provável que existam apenas `performance` e `powersave`.
+* Eles são essenciais no quesito de desempenho, pois ditam o esforço da máquina. Muitas distros (ex.: Debian) costumam vir com o `powersave` ativado por padrão, o que pode acarretar em desempenho inferior. A seguir, cada governor e suas particularidades:
+
+## CPU Governors
+
+* **Performance**: Força a CPU a operar sempre na frequência de clock mais alta possível. Este valor é estático e não muda. Por isso, não oferece nenhum benefício de economia de energia. Pode acarretar em temperaturas elevadas, gargalos e maior consumo energético geral. Ideal quando a máquina tem alimentação garantida e estará constantemente sob carga.
+
+* **Ondemand**: Funciona dinamicamente, permitindo que a CPU alcance a frequência máxima quando a carga do sistema for alta, e a frequência mínima quando estiver ociosa. Ajusta o consumo de energia de acordo com a demanda, porém ao custo de uma latência perceptível na transição entre frequências.
+
+* **Conservative**: Funciona de forma similar ao `ondemand`, ajustando a frequência conforme o uso. A diferença é que, enquanto o `ondemand` age de forma mais agressiva (alternando diretamente entre o máximo e o mínimo), o `conservative` transita entre as frequências de maneira mais gradual.
+
+* **Schedutil**: Funciona dinamicamente com o mesmo objetivo do `ondemand`, porém é mais moderno. Integra-se diretamente ao escalonador do kernel Linux por meio de interfaces específicas, entregando resultados superiores ao `ondemand` na maioria dos casos.
+
+* **Powersave**: Oposto exato do `performance` — força a CPU a operar sempre na frequência de clock mais baixa possível. Este valor também é estático. Oferece a maior economia de energia, mas sacrifica totalmente o desempenho.
+
+> [!WARNING]
+> Usar governors de alto desempenho pode ser prejudicial para sua máquina em casos de superaquecimento ou consumo energético excessivo.
+> Sempre monitore as temperaturas do seu computador.
+
 # Fontes
 <!-- Essa categoria é sempre no final, são os créditos. -->
 - [Wikipedia](https://pt.wikipedia.org/)
 - [Gentoo Wiki](https://wiki.gentoo.org/wiki/Main_Page)
+- [RHEL-docs: cpu governors](https://docs.redhat.com/pt-br/documentation/red_hat_enterprise_linux/6/html/power_management_guide/cpufreq_governors)
+- [kernel.org: cpu governors](https://www.kernel.org/doc/Documentation/cpu-freq/governors.txt)
